@@ -1,12 +1,37 @@
+import com.github.jengelman.gradle.plugins.shadow.transformers.TransformerContext
+import shadow.org.apache.tools.zip.ZipOutputStream
+import com.github.jengelman.gradle.plugins.shadow.transformers.Transformer
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "com.github.jengelman.gradle.plugins:shadow:2.0.2"
+    }
+}
+
 group 'de.heisluft'
-version '1.0-SNAPSHOT'
+version '0.0.1'
 
 apply plugin: 'java'
+apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
 
 repositories {
     mavenCentral()
+}
+
+shadowJar {
+    classifier 'standalone'
+    exclude 'gradle/gradle/wrapper/gradle-wrapper.jar'
+    manifest {
+        attributes 'Main-Class': 'de.heisluft.patcher.Patcher'
+    }
 }
 
 dependencies {
