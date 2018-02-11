@@ -16,4 +16,6 @@ dependencies {
     compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.9.1'
     compile 'org.apache.logging.log4j:log4j-api:2.9.1'
 	compile 'com.github.wumpz:diffutils:2.2'
+    testCompile 'org.junit.platform:junit-platform-runner:1.0.3'
+    testCompile 'org.junit.jupiter:junit-jupiter-api:5.0.3'
 }
