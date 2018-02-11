@@ -1,0 +1,19 @@
+group 'de.heisluft'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r'
+    compile 'commons-io:commons-io:2.6'
+    compile 'org.apache.logging.log4j:log4j-core:2.9.1'
+    compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.9.1'
+    compile 'org.apache.logging.log4j:log4j-api:2.9.1'
+	compile 'com.github.wumpz:diffutils:2.2'
+}
