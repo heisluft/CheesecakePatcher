@@ -22,14 +22,18 @@ import java.util.List;
 @SuppressWarnings("ResultOfMethodCallIgnored")
 public class Patcher {
 
-	private static File gameWorkingDir = new File("work/CheesecakeAdventures");
-	private static File patchWorkingDir = new File("work/patches");
-	private static Logger setup = LogManager.getLogger("Setup");
-	private static List<Path> paths = new ArrayList<>();
+	private static final File workingDir = new File("work");
+	private static final File gameWorkingDir = new File(workingDir,"CheesecakeAdventures");
+	private static final File changeWorkingDir = new File(workingDir,"changes");
+	private static final File patchWorkingDir = new File(changeWorkingDir,"patches");
+	private static final File injsrcWorkingDir = new File(changeWorkingDir, "src");
+	private static final Logger setup = LogManager.getLogger("Setup");
+	private static final List<Path> paths = new ArrayList<>();
 
 	public static void main(String[] args) {
 		long l = System.nanoTime();
 		System.setProperty("log4j.configuration", "log4j.xml");
+
 		setup.info("Setting up working dir\n");
 		try {
 			prepareSrc();
@@ -37,6 +41,7 @@ public class Patcher {
 			setup.catching(e);
 			System.exit(1);
 		}
+
 		setup.info("Adding gradle stuff\n");
 		try {
 			patchGradle();
@@ -44,21 +49,33 @@ public class Patcher {
 			setup.catching(e);
 			System.exit(1);
 		}
-		setup.info("Registering Patches\n");
+
+		setup.info("Injecting Source\n");
 		try {
-			registerPatches(patchWorkingDir);
-		}catch(Exception e) {
+			injectSource(injsrcWorkingDir);
+		} catch(Exception e) {
 			setup.catching(e);
 			System.exit(1);
 		}
 		setup.info("Done\n");
-		setup.info("Applying Patches\n");
+
+		setup.info("Registering Patches\n");
 		try {
-			patchSrc();
-		}catch(Exception e) {
+			registerPatches(patchWorkingDir);
+		} catch(Exception e) {
 			setup.catching(e);
 			System.exit(1);
 		}
+		setup.info("Done\n");
+
+		setup.info("Applying Patches\n");
+		try {
+			patchSrc();
+		} catch(Exception e) {
+			setup.catching(e);
+			System.exit(1);
+		}
+
 		setup.info("Building jar\n");
 		try {
 			buildJar();
@@ -66,6 +83,7 @@ public class Patcher {
 			setup.catching(e);
 			System.exit(1);
 		}
+
 		setup.info("Cleaning up\n");
 		try {
 			copyAndCleanup();
@@ -73,7 +91,8 @@ public class Patcher {
 			setup.catching(e);
 			System.exit(1);
 		}
-		System.out.println("DONE!!! (" + (System.nanoTime() - l) + " nanos)");
+
+		setup.info("DONE!!! (" + (System.nanoTime() - l) + " nanos)");
 	}
 
 	private static void buildJar() throws IOException, InterruptedException {
@@ -88,26 +107,25 @@ public class Patcher {
 	}
 
 	private static void prepareSrc() throws IOException, GitAPIException {
-		File work = new File("work");
-		FileUtils.deleteDirectory(work);
-		work.mkdir();
+		FileUtils.deleteDirectory(workingDir);
+		workingDir.mkdir();
+
 		setup.info("Cloning the game");
 		new CloneCommand().setURI("https://github.com/TinyLittleStudio/java-2d-cheesecake-adventures.git").setDirectory(
 				gameWorkingDir).call().close();
-
-		setup.info("Cloning patches");
-		new CloneCommand().setURI("https://github.com/heisluft/CheesecakePatcher.git").setDirectory(patchWorkingDir).setBranch("patches")
+		setup.info("Cloning changes");
+		new CloneCommand().setURI("https://github.com/heisluft/CheesecakePatcher.git").setDirectory(changeWorkingDir).setBranch("patches")
 				.call().close();
 
 		setup.info("Deleting unnecessary Files");
 		FileUtils.deleteDirectory(new File(gameWorkingDir, ".git"));
-		FileUtils.deleteDirectory(new File(patchWorkingDir, ".git"));
+		FileUtils.deleteDirectory(new File(changeWorkingDir, ".git"));
 		FileUtils.deleteDirectory(new File(gameWorkingDir, "META-INF"));
 		new File(gameWorkingDir, ".gitignore").delete();
 		new File(gameWorkingDir,  "README.md").delete();
 		new File(gameWorkingDir,  "LICENSE").delete();
-		new File(patchWorkingDir,  "README.md").delete();
-		new File(patchWorkingDir,  "LICENSE").delete();
+		new File(changeWorkingDir,  "README.md").delete();
+		new File(changeWorkingDir,  "LICENSE").delete();
 
 		setup.info("Relocating src");
 		File protoType = new File(gameWorkingDir, "Cheesecake Adventures - Prototype");
@@ -127,7 +145,6 @@ public class Patcher {
 	}
 
 	private static void patchGradle() throws IOException {
-
 		new File(gameWorkingDir, "gradle/wrapper").mkdirs();
 		ClassLoader classLoader = Patcher.class.getClassLoader();
 
@@ -175,15 +192,20 @@ public class Patcher {
 		setup.info("Done\n");
 	}
 
+	private static void injectSource(File f) throws IOException {
+		for (File file : f.listFiles())
+			if (file.isDirectory()) injectSource(file);
+			else
+				FileUtils.copyFile(file, gameWorkingDir.toPath().resolve(changeWorkingDir.toPath().relativize(file.toPath())).toFile());
+	}
+
 	private static void registerPatches(File f) {
-		for (File file : f.listFiles()) {
-			if (file.isDirectory()) {
-				registerPatches(file);
-			} else {
-				Path p =patchWorkingDir.toPath().relativize(file.toPath());
+		for (File file : f.listFiles())
+			if (file.isDirectory()) registerPatches(file);
+			else {
+				Path p = patchWorkingDir.toPath().relativize(file.toPath());
 				paths.add(p);
 				setup.info("Found Patch " + p.toString().replace('\\','/'));
-			}
 		}
 	}
 
@@ -204,8 +226,9 @@ public class Patcher {
 			if(nf.exists()) nf.delete();
 			FileUtils.moveFile(f, nf);
 		}
+
 		setup.info("Deleting working dir");
-		FileUtils.deleteDirectory(new File("work"));
+		FileUtils.deleteDirectory(workingDir);
 		setup.info("Done\n");
 	}
 
