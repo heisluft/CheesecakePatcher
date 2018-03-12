@@ -2,6 +2,9 @@ package de.heisluft.patcher;
 
 import com.github.difflib.UnifiedDiffUtils;
 import com.github.difflib.patch.PatchFailedException;
+import joptsimple.OptionParser;
+import joptsimple.OptionSet;
+import joptsimple.OptionSpec;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -29,10 +32,15 @@ public class Patcher {
 	private static final File injsrcWorkingDir = new File(changeWorkingDir, "src");
 	private static final Logger setup = LogManager.getLogger("Setup");
 	private static final List<Path> paths = new ArrayList<>();
+	private static boolean justSource;
 
 	public static void main(String[] args) {
 		long l = System.nanoTime();
 		System.setProperty("log4j.configuration", "log4j.xml");
+
+		OptionParser parser = new OptionParser();
+		parser.accepts("js");
+		justSource = parser.parse(args).has("js");
 
 		setup.info("Setting up working dir\n");
 		try {
@@ -40,6 +48,10 @@ public class Patcher {
 		} catch(Exception e) {
 			setup.catching(e);
 			System.exit(1);
+		}
+		if(justSource) {
+			setup.info("DONE!!! (" + (System.nanoTime() - l) + " nanos)");
+			return;
 		}
 
 		setup.info("Adding gradle stuff\n");
@@ -121,19 +133,23 @@ public class Patcher {
 		setup.info("Cloning the game");
 		new CloneCommand().setURI("https://github.com/TinyLittleStudio/java-2d-cheesecake-adventures.git").setDirectory(
 				gameWorkingDir).call().close();
-		setup.info("Cloning changes");
-		new CloneCommand().setURI("https://github.com/heisluft/CheesecakePatcher.git").setDirectory(changeWorkingDir).setBranch("patches")
-				.call().close();
+		if(!justSource) {
+			setup.info("Cloning changes");
+			new CloneCommand().setURI("https://github.com/heisluft/CheesecakePatcher.git").setDirectory(changeWorkingDir).setBranch("patches").call().close();
+		}
 
 		setup.info("Deleting unnecessary Files");
 		FileUtils.deleteDirectory(new File(gameWorkingDir, ".git"));
-		FileUtils.deleteDirectory(new File(changeWorkingDir, ".git"));
 		FileUtils.deleteDirectory(new File(gameWorkingDir, "META-INF"));
 		new File(gameWorkingDir, ".gitignore").delete();
 		new File(gameWorkingDir,  "README.md").delete();
 		new File(gameWorkingDir,  "LICENSE").delete();
-		new File(changeWorkingDir,  "README.md").delete();
-		new File(changeWorkingDir,  "LICENSE").delete();
+
+		if(!justSource) {
+			FileUtils.deleteDirectory(new File(changeWorkingDir, ".git"));
+			new File(changeWorkingDir, "README.md").delete();
+			new File(changeWorkingDir, "LICENSE").delete();
+		}
 
 		setup.info("Relocating src");
 		File protoType = new File(gameWorkingDir, "Cheesecake Adventures - Prototype");
@@ -143,7 +159,15 @@ public class Patcher {
 		FileUtils.copyDirectoryToDirectory(new File(protoType, "src"), unifiedSrc);
 		FileUtils.copyDirectoryToDirectory(new File(engine, "src"), unifiedSrc);
 		moveAllSubDirsTo(new File(unifiedSrc, "src"), newSrc);
-		FileUtils.moveDirectory(new File(protoType, "res"), new File(gameWorkingDir, "src/main/resources"));
+		File finalAssets =new File(gameWorkingDir, "src/main/resources/assets/cheesecake");
+		FileUtils.moveDirectory(new File(protoType, "res"), finalAssets);
+		new File(finalAssets, "images").renameTo(new File(finalAssets, "textures"));
+		new File(finalAssets, "audio").renameTo(new File(finalAssets, "sound"));
+		new File(finalAssets, "utils/32-original.png").renameTo(new File(finalAssets,"textures/32-original.png"));
+		File dataDir =new File(finalAssets,"data");
+		new File(finalAssets, "utils").renameTo(dataDir);
+		new File(dataDir, "data").renameTo(new File(dataDir, "levels"));
+
 
 		setup.info("Deleting old src");
 		FileUtils.deleteDirectory(protoType);
