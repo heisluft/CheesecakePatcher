@@ -1,0 +1,261 @@
+--- src/main/java/eu/hackathon/cheesecake/Application.java
++++ src/main/java/eu/hackathon/cheesecake/Application.java
+@@ -42,5 +42,5 @@
+     /**
+      * The Window.
+-     * <p>
++     * 
+      * <p>The entire Application is drawing to this window.</p>
+      *
+@@ -51,7 +51,7 @@
+     /**
+      * The default EventHandler.
+-     * <p>
++     * 
+      * <p>The Application creates one single EventHandler for Event-Management.</p>
+-     * <p>
++     * 
+      * <p>There can only exist one instance of the EventHandler class.</p>
+      *
+@@ -62,7 +62,7 @@
+     /**
+      * The default PanelHandler.
+-     * <p>
++     * 
+      * <p>The Application creates one single PanelHandler for Game-State-Management.</p>
+-     * <p>
++     * 
+      * <p>There can only exist one instance of the PanelHandler class.</p>
+      *
+@@ -73,5 +73,5 @@
+     /**
+      * The default InputHandler.
+-     * <p>
++     * 
+      * <p>The Application creates one single InputHandler for default settings and registers it. Other InputHandler
+      * can be added manually.</p>
+@@ -83,5 +83,5 @@
+     /**
+      * The default AudioSource.
+-     * <p>
++     * 
+      * <p>The Application creates one AudioSource.</p>
+      *
+@@ -99,5 +99,5 @@
+     /**
+      * The default Scene.
+-     * <p>
++     * 
+      * <p>The scene allows modification to the total scene e.g. Fading/Splash.</p>
+      *
+@@ -113,5 +113,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This Constructor generates an ApplicationConfiguration which is required.</p>
+      *
+@@ -124,5 +124,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor takes in an ApplicationConfiguration Object which defines the Application.</p>
+      *
+@@ -162,5 +162,5 @@
+     /**
+      * Ticks x times per second.
+-     * <p>
++     * 
+      * <p>The Application is calling the tick Method to update the
+      * state x times per second.</p>
+@@ -194,5 +194,5 @@
+     /**
+      * Draws x times per second.
+-     * <p>
++     * 
+      * <p>The Application is calling the draw Method to update the
+      * scene x times per second.</p>
+@@ -230,5 +230,5 @@
+     /**
+      * Starts the Application.
+-     * <p>
++     * 
+      * <p>This method starts the Application as long as it is not running.
+      * If it is already running, this method will have no effect.</p>
+@@ -252,5 +252,5 @@
+     /**
+      * Stops the Application.
+-     * <p>
++     * 
+      * <p>This method stops the Application as long as it is running.
+      * After stopping the dispose method will be called.</p>
+@@ -264,7 +264,7 @@
+     /**
+      * Returns the ApplicationThread.
+-     * <p>
++     * 
+      * <p>This method returns the current used ApplicationThread.</p>
+-     * <p>
++     * 
+      * <p>The ApplicationThread is created inside of the Application. Each Application Object contains exactly one ApplicationThread.</p>
+      *
+@@ -277,5 +277,5 @@
+     /**
+      * Returns the Window.
+-     * <p>
++     * 
+      * <p>Returns the Window on which the Application is drawing.</p>
+      *
+@@ -289,5 +289,5 @@
+     /**
+      * Returns the Keyboard.
+-     * <p>
++     * 
+      * <p>Returns the Keyboard on which the Application is receiving keyboard input.</p>
+      *
+@@ -301,5 +301,5 @@
+     /**
+      * Returns the Mouse.
+-     * <p>
++     * 
+      * <p>Returns the Mouse on which the Application is receiving mouse input.</p>
+      *
+@@ -313,7 +313,7 @@
+     /**
+      * Registers a new EventListener.
+-     * <p>
++     * 
+      * <p>This method registers a new EventListener.</p>
+-     * <p>
++     * 
+      * <p>If it is already registered, nothing will change.</p>
+      *
+@@ -327,7 +327,7 @@
+     /**
+      * Unregisters a EventListener.
+-     * <p>
++     * 
+      * <p>This method unregisters a EventListener.</p>
+-     * <p>
++     * 
+      * <p>If it is not registered, nothing will change.</p>
+      *
+@@ -341,5 +341,5 @@
+     /**
+      * Send an Event to all EventListeners.
+-     * <p>
++     * 
+      * <p>This method uses the EventHandler to send an Object that inherits from the Event class to all registered EventListeners.</p>
+      *
+@@ -354,5 +354,5 @@
+     /**
+      * Returns the EventHandler.
+-     * <p>
++     * 
+      * <p>This method returns the default EventHandler. There exists only one instance of this class.</p>
+      *
+@@ -366,5 +366,5 @@
+     /**
+      * Adds a new Panel.
+-     * <p>
++     * 
+      * <p>This method adds a new Panel to the PanelHandler. If this Panel is already registered,
+      * then nothing will change. If a Panel with the same key already exists, the PanelManager will
+@@ -382,5 +382,5 @@
+     /**
+      * Removes a Panel.
+-     * <p>
++     * 
+      * <p>This method removes a existing Panel from the PanelHandler. If this Panel is no registered,
+      * then nothing will change. If a Panel with the same key already exists, the PanelManager will
+@@ -397,5 +397,5 @@
+     /**
+      * Sets the current Panel.
+-     * <p>
++     * 
+      * <p>Sets the current Panel corresponding to the given key. If that key does not exists, an
+      * IllegalArgumentException will be thrown. Else the current Panel will be set to the key.</p>
+@@ -412,5 +412,5 @@
+     /**
+      * Returns the current Panel.
+-     * <p>
++     * 
+      * <p>Gets the current Panel from the PanelHandler.</p>
+      *
+@@ -425,5 +425,5 @@
+     /**
+      * Returns the PanelHandler.
+-     * <p>
++     * 
+      * <p>This method returns the default PanelHandler which was initialized from inside of the Application.</p>
+      *
+@@ -437,7 +437,7 @@
+     /**
+      * Registers a new InputHandler.
+-     * <p>
++     * 
+      * <p>This method registers a new InputHandler for various purposes.</p>
+-     * <p>
++     * 
+      * <p>If it is already registered, nothing will change.</p>
+      *
+@@ -451,7 +451,7 @@
+     /**
+      * Unregisters an existing InputHandler.
+-     * <p>
++     * 
+      * <p>This method unregisters an already existing InputHandler.</p>
+-     * <p>
++     * 
+      * <p>If it is not registered, nothing will change.</p>
+      *
+@@ -465,5 +465,5 @@
+     /**
+      * Returns a List of InputHandler.
+-     * <p>
++     * 
+      * <p>This method returns a list of all registered InputHandler.</p>
+      *
+@@ -478,5 +478,5 @@
+     /**
+      * Returns the default InputHandler.
+-     * <p>
++     * 
+      * <p>This method returns the default InputHandler which was initialized from inside of the Application.</p>
+      *
+@@ -490,5 +490,5 @@
+     /**
+      * Returns the default AudioSource.
+-     * <p>
++     * 
+      * <p>This method returns the default AudioSource which was initialized from inside of the Application.</p>
+      *
+@@ -502,5 +502,5 @@
+     /**
+      * Returns the default Scene.
+-     * <p>
++     * 
+      * <p>This method returns the default Scene which was initialized from inside of the Application.</p>
+      *
+@@ -514,5 +514,5 @@
+     /**
+      * Sets the Game-Manager.
+-     * <p>
++     * 
+      * <p>This method sets the Game-Manager.</p>
+      *
+@@ -526,5 +526,5 @@
+     /**
+      * Returns the Game-Manager.
+-     * <p>
++     * 
+      * <p>This method returns the Game-Manager.</p>
+      *
+@@ -547,5 +547,5 @@
+     /**
+      * Returns the ApplicationConfiguration.
+-     * <p>
++     * 
+      * <p>This method returns the currently used ApplicationConfiguration.</p>
+      *

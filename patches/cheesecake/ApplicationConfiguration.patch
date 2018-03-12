@@ -1,0 +1,63 @@
+--- src/main/java/eu/hackathon/cheesecake/ApplicationConfiguration.java
++++ src/main/java/eu/hackathon/cheesecake/ApplicationConfiguration.java
+@@ -47,5 +47,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This constructor takes only in the window mode.</p>
+      *
+@@ -60,5 +60,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This constructor takes only in the title for the window and thread.</p>
+      *
+@@ -73,5 +73,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This constructor takes only in the title for the window and thread.</p>
+      *
+@@ -89,7 +89,7 @@
+     /**
+      * Sets the title.
+-     * <p>
++     * 
+      * <p>This method takes in a title and sets it in the configuration</p>
+-     * <p>
++     * 
+      * <p>The title is used for the window and thread.</p>
+      *
+@@ -104,7 +104,7 @@
+     /**
+      * Returns the title.
+-     * <p>
++     * 
+      * <p>This method returns the title which is set in the configuration</p>
+-     * <p>
++     * 
+      * <p>The title is used for the window and thread.</p>
+      *
+@@ -119,7 +119,7 @@
+     /**
+      * Sets the window mode.
+-     * <p>
++     * 
+      * <p>This method takes in a title and sets it in the configuration</p>
+-     * <p>
++     * 
+      * <p>The window mode is used for the windows resolution.</p>
+      *
+@@ -134,7 +134,7 @@
+     /**
+      * Returns the window mode.
+-     * <p>
++     * 
+      * <p>This method returns the window mode which is set in the configuration</p>
+-     * <p>
++     * 
+      * <p>The window mode is used for the windows resolution.</p>
+      *

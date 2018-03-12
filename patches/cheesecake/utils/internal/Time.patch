@@ -1,0 +1,9 @@
+--- src/main/java/eu/hackathon/cheesecake/utils/internal/Time.java
++++ src/main/java/eu/hackathon/cheesecake/utils/internal/Time.java
+@@ -24,5 +24,5 @@
+     /**
+      * This method returns the time between tick and draw updates.
+-     * <p>
++     * 
+      * <p>This is the time that normally passes between updates. This method can be used to normalize
+      * time or updated based calculations and smooth interpolation.</p>

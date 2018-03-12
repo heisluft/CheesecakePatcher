@@ -1,0 +1,51 @@
+--- src/main/java/eu/hackathon/cheesecake/ApplicationThread.java
++++ src/main/java/eu/hackathon/cheesecake/ApplicationThread.java
+@@ -6,5 +6,5 @@
+ /**
+  * This class extends the default Java thread and fits it for the application.
+- * <p>
++ * 
+  * <p>This certain implementation of the thread class is required for the Application of the application.
+  * This class includes the Main-Game-Loop and a Game-Timer for </p>
+@@ -28,5 +28,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This Constructor creates a thread which uses a predefined ApplicationRunnable from the
+      * application.</p>
+@@ -40,5 +40,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This Constructor creates a thread which uses a predefined ApplicationRunnable from the
+      * application.</p>
+@@ -53,5 +53,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This Constructor creates a thread which uses a predefined ApplicationRunnable from the
+      * application.</p>
+@@ -71,5 +71,5 @@
+     /**
+      * Method initializes base-values.
+-     * <p>
++     * 
+      * <p>This method is mostly for initialization purposes.</p>
+      */
+@@ -84,5 +84,5 @@
+     /**
+      * Opens the ApplicationThread.
+-     * <p>
++     * 
+      * <p>This method opens the ApplicationThread and starts the ApplicationRunnable.</p>
+      * <p>This method is package-private.</p>
+@@ -94,5 +94,5 @@
+     /**
+      * Closes the ApplicationThread.
+-     * <p>
++     * 
+      * <p>This method closes the ApplicationThread and stops the ApplicationRunnable.</p>
+      * <p>This method is package-private.</p>

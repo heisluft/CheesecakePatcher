@@ -1,0 +1,46 @@
+--- src/main/java/eu/hackathon/game/utils/Resources.java
++++ src/main/java/eu/hackathon/game/utils/Resources.java
+@@ -1,6 +1,6 @@
+ package eu.hackathon.game.utils;
+ 
++import de.heisluft.capi.resources.ResourceLocation;
+ import eu.hackathon.cheesecake.external.audio.AudioClip;
+-import eu.hackathon.cheesecake.external.audio.AudioType;
+ import eu.hackathon.cheesecake.internal.graphics.Font;
+ import eu.hackathon.cheesecake.internal.graphics.Image;
+@@ -8,18 +8,18 @@
+ 
+ public final class Resources {
+-    public static final Font FONT = new Font("/utils/32-original");
++    public static final Font FONT = new Font("/assets/cheesecake/textures/32-original");
+ 
+-    public static final Image SPLASH = new Image("/images/splash", 640, 640, ImageType.PNG);
+-    public static final Image LOGO = new Image("/images/logo", 640, 640, ImageType.PNG);
+-    public static final Image BACKGROUND = new Image("/images/background", 704, 640, ImageType.PNG);
+-    public static final Image GAME_WON = new Image("/images/game-won", 640, 640, ImageType.PNG);
++    public static final Image SPLASH = new Image("/assets/cheesecake/textures/splash", 640, 640, ImageType.PNG);
++    public static final Image LOGO = new Image("/assets/cheesecake/textures/logo", 640, 640, ImageType.PNG);
++    public static final Image BACKGROUND = new Image("/assets/cheesecake/textures/background", 704, 640, ImageType.PNG);
++    public static final Image GAME_WON = new Image(new ResourceLocation("cheesecake:textures/game-won.png"));
+ 
+-    public static final AudioClip THEME = new AudioClip("/audio/theme", AudioType.WAV);
+-    public static final AudioClip CLICK_01 = new AudioClip("/audio/click_01", AudioType.WAV);
+-    public static final AudioClip CLICK_02 = new AudioClip("/audio/click_02", AudioType.WAV);
+-    public static final AudioClip COUGH = new AudioClip("/audio/cough", AudioType.WAV);
++    public static final AudioClip THEME = new AudioClip(new ResourceLocation("cheesecake:sound/theme.wav"));
++    public static final AudioClip CLICK_01 = new AudioClip(new ResourceLocation("cheesecake:sound/click_01.wav"));
++    public static final AudioClip CLICK_02 = new AudioClip(new ResourceLocation("cheesecake:sound/click_02.wav"));
++    public static final AudioClip COUGH = new AudioClip(new ResourceLocation("cheesecake:sound/cough.wav"));
+ 
+-    public static final Image[] TILESET = new Image("/images/tileset-16x16", 640, 640, ImageType.PNG).getSubimages(64, 64);
+-    public static final Image PLAYER = new Image("/images/splash", 64, 64, ImageType.PNG);
++    public static final Image[] TILESET = new Image("/assets/cheesecake/textures/tileset-16x16", 640, 640, ImageType.PNG).getSubimages(64, 64);
++    public static final Image PLAYER = new Image("/assets/cheesecake/textures/splash", 64, 64, ImageType.PNG);
+     public static final Image INVENTORY_SLOT = TILESET[73];
+ 
+@@ -32,4 +32,4 @@
+     public static final Image[] ACTION_BOX = new Image[]{TILESET[7], TILESET[8], TILESET[9]};
+ 
+-    public static void init() { /* ... */ }
++    public static void init() {}
+ }

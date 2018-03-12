@@ -1,0 +1,59 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/mouse/MouseStructure.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/mouse/MouseStructure.java
+@@ -11,5 +11,5 @@
+  * This interface acts as a listener for receiving "interesting" mouse events
+  * (press, release, click, move, wheel) on a component.
+- * <p>
++ * 
+  * <p>This interface basically inherits basic java.awt.* events for mouse handling.</p>
+  *
+@@ -30,7 +30,7 @@
+      * Invoked when the mouse button has been clicked (pressed
+      * and released).
+-     * <p>
++     * 
+      * <p>This method will only be invoked from inside the Application.</p>
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *
+@@ -47,7 +47,7 @@
+     /**
+      * Invoked when a mouse button has been pressed.
+-     * <p>
++     * 
+      * <p>This method will only be invoked from inside the Application.</p>
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *
+@@ -64,7 +64,7 @@
+     /**
+      * Invoked when a mouse button has been released.
+-     * <p>
++     * 
+      * <p>This method will only be invoked from inside the Application.</p>
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *
+@@ -92,7 +92,7 @@
+     /**
+      * Invoked when the mouse cursor has been moved.
+-     * <p>
++     * 
+      * <p>This method will only be invoked from inside the Application.</p>
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *
+@@ -110,7 +110,7 @@
+     /**
+      * Invoked when the mouse wheel is rotated.
+-     * <p>
++     * 
+      * <p>This method will only be invoked from inside the Application.</p>
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *

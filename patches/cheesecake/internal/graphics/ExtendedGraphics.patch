@@ -1,0 +1,111 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/graphics/ExtendedGraphics.java
++++ src/main/java/eu/hackathon/cheesecake/internal/graphics/ExtendedGraphics.java
+@@ -12,5 +12,5 @@
+  * The ExtendedGraphics class is used for drawing to one single BufferedImage by using the pixel-data array inside of it
+  * and modifying each pixel. (Also known as software-rendering.)
+- * <p>
++ * 
+  * <p>This class only supports alpha blending and normal image and font drawing.</p>
+  *
+@@ -46,9 +46,9 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor takes in the actual size it should render for.
+      * This does not affect the actual screen size, but only the scale in which the image
+      * is rendered. The Image can be rescaled after when rendering it to the window.</p>
+-     * <p>
++     * 
+      * <p>The Constructor is package-private.</p>
+      *
+@@ -66,9 +66,9 @@
+     /**
+      * This method sets the pixel-color on a certain coordinate.
+-     * <p>
++     * 
+      * <p>This method checks for the screen size and only draws the pixel which are in the bounds of the window/ screen.</p>
+-     * <p>
++     * 
+      * <p>This method checks for the alpha value of the color and uses alpha blending if necessary.</p>
+-     * <p>
++     * 
+      * <p>This method is private.</p>
+      *
+@@ -100,7 +100,7 @@
+     /**
+      * This method draws a given text.
+-     * <p>
++     * 
+      * <p>This method requires a Font to draw a text. The text will be drawn in the given color at the given location.</p>
+-     * <p>
++     * 
+      * <p>The actual font size is taken from the Font object.</p>
+      *
+@@ -114,9 +114,9 @@
+     /**
+      * This method sets the pixel-color on a certain coordinate.
+-     * <p>
++     * 
+      * <p>This method checks for the screen size and only draws the pixel which are in the bounds of the window/ screen.</p>
+-     * <p>
++     * 
+      * <p>This method checks for the alpha value of the color and uses alpha blending if necessary.</p>
+-     * <p>
++     * 
+      * <p>This method is private.</p>
+      *
+@@ -152,5 +152,5 @@
+     /**
+      * This method draws a given image.
+-     * <p>
++     * 
+      * <p>This method requires an image to draw. The given image will be drawn at the given location.</p>
+      *
+@@ -194,4 +194,46 @@
+     }
+ 
++    /**
++     * This method requires an image to draw. The given image will be drawn at the given location.
++     *
++     * @param image the image which will be drawn.
++     * @param x the X coordinate on which the image will be drawn.
++     * @param y the Y coordinate on which the image will be drawn.
++     * @param height the height of the image
++     * @param width the width of the image
++     */
++    public final void drawImage(Image image, int x, int y, int width, int height) {
++        if (image == null) {
++            return;
++        }
++        int offsetx = 0, offsety = 0;
++
++        if (x < -width || y < -height || x > getWidth() || y > getHeight()) {
++            return;
++        }
++
++        if (offsetx + x > getWidth()) {
++            width -= width + x - getWidth();
++        }
++
++        if (x < 0) {
++            offsetx -= x;
++        }
++
++        if (height + offsety > getHeight()) {
++            height -= height + y - getHeight();
++        }
++
++        if (y < 0) {
++            offsety -= y;
++        }
++
++        for (int i = offsety; i < height; i++) {
++            for (int j = offsetx; j < width; j++) {
++                setPixel(j + x, i + y, image.getPixel(j, i));
++            }
++        }
++    }
++
+     public void fillRect(int color, int x, int y, int width, int height) {
+         int offsetx = 0, offsety = 0;

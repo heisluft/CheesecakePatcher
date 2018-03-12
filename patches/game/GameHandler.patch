@@ -1,0 +1,26 @@
+--- src/main/java/eu/hackathon/game/GameHandler.java
++++ src/main/java/eu/hackathon/game/GameHandler.java
+@@ -1,4 +1,6 @@
+ package eu.hackathon.game;
+ 
++import de.heisluft.capi.resources.DefaultAssetPack;
++import de.heisluft.capi.resources.IAssetPack;
+ import eu.hackathon.cheesecake.Application;
+ import eu.hackathon.cheesecake.internal.Manager;
+@@ -26,4 +28,6 @@
+     private int index = -1, next = -1;
+ 
++    private final IAssetPack assetPack = new DefaultAssetPack();
++
+     private Helper helper = new Helper();
+     private ActionLog actionLog = new ActionLog();
+@@ -58,4 +62,9 @@
+ 
+     @Override
++    public IAssetPack getCurrentAssets() {
++        return assetPack;
++    }
++
++    @Override
+     public void tick() {
+         if (getScreen().isFading()) {

@@ -1,0 +1,34 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/Manager.java
++++ src/main/java/eu/hackathon/cheesecake/internal/Manager.java
+@@ -4,4 +4,6 @@
+ package eu.hackathon.cheesecake.internal;
+ 
++import de.heisluft.capi.resources.IAssetManager;
++import de.heisluft.capi.resources.IAssetPack;
+ import eu.hackathon.cheesecake.Application;
+ import eu.hackathon.cheesecake.PanelHandler;
+@@ -18,14 +20,14 @@
+  * @version 1.0.0
+  */
+-public abstract class Manager implements Handler {
++public abstract class Manager implements Handler/*PatchStart*/, IAssetManager/*PatchEnd*/ {
+ 
+     /**
+      * The Application.
+      */
+-    public Application application;
++    private Application application;
+ 
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Manager class requires the Application instance it is running on as a reference and can be used
+      * for global access to each Handler class.</p>
+@@ -99,5 +101,5 @@
+     /**
+      * Returns the Application.
+-     * <p>
++     * 
+      * <p>Returns the Application which is currently in use.</p>
+      *

@@ -1,0 +1,23 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/InputHandler.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/InputHandler.java
+@@ -11,5 +11,5 @@
+ /**
+  * This class acts as a handler for input.
+- * <p>
++ * 
+  * <p>This class acts as a container for the Keyboard and Mouse.</p>
+  *
+@@ -47,5 +47,5 @@
+     /**
+      * Returns the Keyboard.
+-     * <p>
++     * 
+      * <p>Returns the currently registered Keyboard.</p>
+      *
+@@ -58,5 +58,5 @@
+     /**
+      * Returns the Mouse.
+-     * <p>
++     * 
+      * <p>Returns the currently registered Mouse.</p>
+      *

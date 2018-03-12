@@ -1,0 +1,1 @@
+## All patches made to the game and the injected source.

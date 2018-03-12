@@ -1,0 +1,9 @@
+--- src/main/java/eu/hackathon/cheesecake/external/audio/AudioSource.java
++++ src/main/java/eu/hackathon/cheesecake/external/audio/AudioSource.java
+@@ -10,5 +10,5 @@
+ 
+ public class AudioSource implements Structure {
+-    private volatile List<AudioClip> list = new CopyOnWriteArrayList<AudioClip>();
++    private volatile List<AudioClip> list = new CopyOnWriteArrayList<>();
+     private int index = 0;
+ 

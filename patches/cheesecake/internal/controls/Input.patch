@@ -1,0 +1,64 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/Input.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/Input.java
+@@ -8,5 +8,5 @@
+ /**
+  * This class stores the given input data of a key.
+- * <p>
++ * 
+  * <p>This class stores the given input data of a key by storing its value and current state.</p>
+  * <p>This class also gives the key a buffer to limit the requests per tick.</p>
+@@ -45,5 +45,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor may take a buffer size for variable request limits.</p>
+      *
+@@ -56,7 +56,7 @@
+     /**
+      * Returns if the key is pressed.
+-     * <p>
++     * 
+      * <p>Returns if the key or button is currently pressed.</p>
+-     * <p>
++     * 
+      * <p>Only returns buffer size times true per tick if the key is pressed.</p>
+      * <p>If this method is invoked the buffer for the pressed state will be decreased. If the buffer
+@@ -71,5 +71,5 @@
+     /**
+      * Sets if the key is currently pressed or not.
+-     * <p>
++     * 
+      * <p>If this method is invoked, the buffer for the pressed state will be resetted.</p>
+      *
+@@ -82,7 +82,7 @@
+     /**
+      * Returns if the key is released.
+-     * <p>
++     * 
+      * <p>Returns if the key or button is currently released.</p>
+-     * <p>
++     * 
+      * <p>Only returns buffer size times true per tick if the key is released.</p>
+      * <p>If this method is invoked the buffer for the released state will be decreased. If the buffer
+@@ -97,5 +97,5 @@
+     /**
+      * Sets if the key is currently released or not.
+-     * <p>
++     * 
+      * <p>If this method is invoked, the buffer for the released state will be resetted.</p>
+      *
+@@ -108,5 +108,5 @@
+     /**
+      * Returns true if the key is active.
+-     * <p>
++     * 
+      * <p>This method is not limited.</p>
+      *
+@@ -136,5 +136,5 @@
+     /**
+      * Returns the buffer size.
+-     * <p>
++     * 
+      * <p>This method is package-private.</p>
+      *

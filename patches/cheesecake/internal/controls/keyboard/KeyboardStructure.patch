@@ -1,0 +1,9 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/keyboard/KeyboardStructure.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/keyboard/KeyboardStructure.java
+@@ -10,5 +10,5 @@
+  * This interface acts as a listener for receiving "interesting" keyboard events
+  * (press, release) on a component.
+- * <p>
++ * 
+  * <p>This interface basically inherits basic java.awt.* events for keyboard handling.</p>
+  *

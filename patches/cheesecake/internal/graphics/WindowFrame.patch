@@ -1,0 +1,11 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/graphics/WindowFrame.java
++++ src/main/java/eu/hackathon/cheesecake/internal/graphics/WindowFrame.java
+@@ -41,7 +41,5 @@
+ 
+         setVisible(true);
+-
+-        URL url = getClass().getClassLoader().getResource("icon.png");
+-
++        URL url = getClass().getClassLoader().getResource("images/icon.png");
+         if (url != null) {
+             Image image = new ImageIcon(url).getImage();

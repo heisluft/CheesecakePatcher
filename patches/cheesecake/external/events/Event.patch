@@ -1,0 +1,23 @@
+--- src/main/java/eu/hackathon/cheesecake/external/events/Event.java
++++ src/main/java/eu/hackathon/cheesecake/external/events/Event.java
+@@ -19,6 +19,8 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor can only be accessed by inherting classes.</p>
++     *
++     * @param name The Events name
+      */
+     protected Event(String name) {
+@@ -28,8 +30,8 @@
+     /**
+      * Returns the name.
+-     * <p>
++     * 
+      * <p>This method returns the name of the event for identification purposes. This method is final.</p>
+      *
+-     * @Return String The name of the event.
++     * @return String The name of the event.
+      */
+     public final String name() {

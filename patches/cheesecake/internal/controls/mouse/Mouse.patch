@@ -1,0 +1,132 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/mouse/Mouse.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/mouse/Mouse.java
+@@ -115,8 +115,8 @@
+     /**
+      * Returns the stored input object.
+-     * <p>
++     * 
+      * <p>This method returns a stored input object corresponding to the given keycode. If
+      * no such elemen exists, one will be created.</p>
+-     * <p>
++     * 
+      * <p>This method is private.</p>
+      *
+@@ -134,5 +134,5 @@
+     /**
+      * Returns if the cursor is in the given area.
+-     * <p>
++     * 
+      * <p>This method draws a rectangle and checks if the cursors last position is intersecting with the given location.</p>
+      *
+@@ -149,8 +149,8 @@
+     /**
+      * Returns if the button is currently active.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently active in use.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -164,8 +164,8 @@
+     /**
+      * Returns if the button is currently active.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently active in use.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -180,10 +180,10 @@
+     /**
+      * Returns if the button is currently pressed.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently pressed.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -197,10 +197,10 @@
+     /**
+      * Returns if the button is currently pressed.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently pressed.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -215,10 +215,10 @@
+     /**
+      * Returns if the button is currently released.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently released.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -232,10 +232,10 @@
+     /**
+      * Returns if the button is currently released.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given button value and
+      * returns if the button is currently released.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -250,7 +250,7 @@
+     /**
+      * Retuns the mouse location.
+-     * <p>
++     * 
+      * <p>This method returns the last tracked location of the mouse.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -288,5 +288,5 @@
+     /**
+      * Returns if the mouse is enabled.
+-     * <p>
++     * 
+      * <p>Returns whether the mouse is enabled or not. If it is not, then no input will be received.</p>
+      *
+@@ -299,5 +299,5 @@
+     /**
+      * Returns if the mouse is disabled.
+-     * <p>
++     * 
+      * <p>Returns whether the mouse is disabled or not. If it is, then no input will be received.</p>
+      *
+@@ -310,7 +310,7 @@
+     /**
+      * Returns the mouse instance.
+-     * <p>
++     * 
+      * <p>There will only be one instance created.</p>
+-     * <p>
++     * 
+      * <p>This method is static.</p>
+      *

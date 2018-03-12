@@ -1,0 +1,15 @@
+--- src/main/java/eu/hackathon/game/utils/ResourcesHandler.java
++++ src/main/java/eu/hackathon/game/utils/ResourcesHandler.java
+@@ -11,5 +11,5 @@
+ 
+         for (int i = 0; i < 10; i++) {
+-            boolean result = FileUtils.install("/utils/data/level " + i + LevelData.FILE_EXTENSION, FileUtils.getTotalPath() + "/" + LevelData.FOLDER + "/");
++            boolean result = FileUtils.install("/assets/cheesecake/data/levels/level " + i + LevelData.FILE_EXTENSION, FileUtils.getTotalPath() + "/" + LevelData.FOLDER + "/");
+ 
+             if (!result) {
+@@ -17,5 +17,4 @@
+             }
+         }
+-        Resources.init();
+     }
+ }

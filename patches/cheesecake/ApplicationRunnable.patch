@@ -1,0 +1,30 @@
+--- src/main/java/eu/hackathon/cheesecake/ApplicationRunnable.java
++++ src/main/java/eu/hackathon/cheesecake/ApplicationRunnable.java
+@@ -8,5 +8,5 @@
+ /**
+  * This class extends the default Java thread and fits it for the application.
+- * <p>
++ * 
+  * <p>This certain implementation of the thread class is required for the Application of the application.
+  * This class includes the Main-Game-Loop and a Game-Timer for </p>
+@@ -73,5 +73,5 @@
+     /**
+      * Starts the ApplicationRunnable.
+-     * <p>
++     * 
+      * <p>This method starts the ApplicationRunnable as long as it is not running.
+      * If it is already running, this method will have no effect.</p>
+@@ -85,5 +85,5 @@
+     /**
+      * Starts the ApplicationRunnable.
+-     * <p>
++     * 
+      * <p>This method starts the ApplicationRunnable as long as it is not running.
+      * If it is already running, this method will have no effect.</p>
+@@ -97,5 +97,5 @@
+     /**
+      * Returns if the Runnable is running.
+-     * <p>
++     * 
+      * <p>This method returns a boolean which is set true while the Runnable is running.</p>
+      *

@@ -1,0 +1,9 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/graphics/ImageType.java
++++ src/main/java/eu/hackathon/cheesecake/internal/graphics/ImageType.java
+@@ -6,5 +6,5 @@
+ /**
+  * This enum defines all available image types.
+- * <p>
++ * 
+  * <p>This enum is required to load images of a specific type.</p>
+  *

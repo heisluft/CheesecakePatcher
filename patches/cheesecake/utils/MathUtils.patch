@@ -1,0 +1,30 @@
+--- src/main/java/eu/hackathon/cheesecake/utils/MathUtils.java
++++ src/main/java/eu/hackathon/cheesecake/utils/MathUtils.java
+@@ -15,5 +15,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor is private.</p>
+      */
+@@ -24,5 +24,5 @@
+     /**
+      * Returns the given value clamped between minimum and maximum.
+-     * <p>
++     * 
+      * <p>This method checks if a value is bigger than a given maximum and returns the maximum if its bigger. This
+      * method checks if a value is smaller than a given minimum and returns the minimum if its smaller. Else the original
+@@ -40,5 +40,5 @@
+     /**
+      * Returns the given value clamped between minimum and maximum.
+-     * <p>
++     * 
+      * <p>This method checks if a value is bigger than a given maximum and returns the maximum if its bigger. This
+      * method checks if a value is smaller than a given minimum and returns the minimum if its smaller. Else the original
+@@ -69,5 +69,5 @@
+     /**
+      * Returns the number as roman number.
+-     * <p>
++     * 
+      * <p>This method converts a given integer value into a roman number. This number is represented as a
+      * simple string.</p>

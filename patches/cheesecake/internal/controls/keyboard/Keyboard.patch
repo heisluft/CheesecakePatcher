@@ -1,0 +1,118 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/keyboard/Keyboard.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/keyboard/Keyboard.java
+@@ -98,5 +98,5 @@
+     /**
+      * Returns the Input object for the specific KeyCode.
+-     * <p>
++     * 
+      * <p>Returns the Input object stored in the map. If it does not exist a new one
+      * will be created and put into the map.</p>
+@@ -115,8 +115,8 @@
+     /**
+      * Returns if the key is currently active.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently active in use.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -130,8 +130,8 @@
+     /**
+      * Returns if the key is currently active.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently active in use.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -146,10 +146,10 @@
+     /**
+      * Returns if the key is currently pressed.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently pressed.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -163,10 +163,10 @@
+     /**
+      * Returns if the key is currently pressed.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently pressed.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -181,10 +181,10 @@
+     /**
+      * Returns if the key is currently released.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently released.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -198,10 +198,10 @@
+     /**
+      * Returns if the key is currently released.
+-     * <p>
++     * 
+      * <p>Checks for the stored Input object corresponding to the given key value and
+      * returns if the key is currently released.</p>
+-     * <p>
++     * 
+      * <p>This method can only be requested a few times depending on the given input buffer.</p>
+-     * <p>
++     * 
+      * <p>This method ist static.</p>
+      *
+@@ -216,5 +216,5 @@
+     /**
+      * Returns the last stored input as char.
+-     * <p>
++     * 
+      * <p>This method checks for the last stored input char and removes it. The last input can only be requested once per update.</p>
+      *
+@@ -248,5 +248,5 @@
+     /**
+      * Returns if the Keyboard is enabled.
+-     * <p>
++     * 
+      * <p>Returns whether the Keyboard is enabled or not. If it is not, then no input will be received.</p>
+      *
+@@ -259,5 +259,5 @@
+     /**
+      * Returns if the Keyboard is disabled.
+-     * <p>
++     * 
+      * <p>Returns whether the Keyboard is disabled or not. If it is, then no input will be received.</p>
+      *
+@@ -270,7 +270,7 @@
+     /**
+      * Returns the Keyboard instance.
+-     * <p>
++     * 
+      * <p>There will only be one instance created.</p>
+-     * <p>
++     * 
+      * <p>This method is static.</p>
+      *

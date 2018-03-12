@@ -1,0 +1,33 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/graphics/Image.java
++++ src/main/java/eu/hackathon/cheesecake/internal/graphics/Image.java
+@@ -4,5 +4,8 @@
+ package eu.hackathon.cheesecake.internal.graphics;
+ 
++import de.heisluft.capi.resources.MissingResourceException;
++import de.heisluft.capi.resources.ResourceLocation;
+ import eu.hackathon.cheesecake.utils.Utils;
++import eu.hackathon.game.GameHandler;
+ 
+ import javax.imageio.ImageIO;
+@@ -14,6 +17,5 @@
+ 
+ public class Image {
+-    private int width;
+-    private int height;
++    private int width, height;
+ 
+     private int[] data;
+@@ -21,4 +23,13 @@
+     private ImageType imageType;
+ 
++    public Image(ResourceLocation location) {
++        try {
++            BufferedImage bi = ImageIO.read(GameHandler.instance().getCurrentAssets().getInputStream(location));
++            setPixel(bi);
++        } catch(MissingResourceException | IOException e) {
++            e.printStackTrace();
++        }
++    }
++
+     public Image(File file) {
+         if (file != null) {

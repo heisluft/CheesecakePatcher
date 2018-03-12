@@ -1,0 +1,51 @@
+--- src/main/java/eu/hackathon/cheesecake/Panel.java
++++ src/main/java/eu/hackathon/cheesecake/Panel.java
+@@ -8,5 +8,5 @@
+ /**
+  * The abstract Panel class represents potential Game-State classes.
+- * <p>
++ * 
+  * <p>The Panel class is used as a form for the Game-States which then
+  * are added to the PanelHandler class. </p>
+@@ -25,5 +25,5 @@
+     /**
+      * The Manager for global data management.
+-     * <p>
++     * 
+      * <p>This variable is final.</p>
+      *
+@@ -34,5 +34,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The panel requires a key for identification purposes.</p>
+      *
+@@ -55,5 +55,5 @@
+     /**
+      * When the Panel is enabled.
+-     * <p>
++     * 
+      * <p>This method is not required.</p>
+      * <p>This method is package-private.</p>
+@@ -63,5 +63,5 @@
+     /**
+      * When the Panel is disabled.
+-     * <p>
++     * 
+      * <p>This method is not required.</p>
+      * <p>This method is package-private.</p>
+@@ -71,5 +71,5 @@
+     /**
+      * Returns the key of the Panel.
+-     * <p>
++     * 
+      * <p>This method always returns a string.</p>
+      *
+@@ -82,5 +82,5 @@
+     /**
+      * Returns the Manager.
+-     * <p>
++     * 
+      * <p>This method always returns the same instance of the Manager and is used as global instance
+      * for data management purposes.</p>

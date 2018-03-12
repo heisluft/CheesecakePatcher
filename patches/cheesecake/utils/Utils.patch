@@ -1,0 +1,16 @@
+--- src/main/java/eu/hackathon/cheesecake/utils/Utils.java
++++ src/main/java/eu/hackathon/cheesecake/utils/Utils.java
+@@ -28,5 +28,5 @@
+     /**
+      * This method returns a BufferedImage.
+-     * <p>
++     * 
+      * <p>This method takes in a path in where the actual images is located
+      * and loads it as a BufferedImage.</p>
+@@ -47,5 +47,5 @@
+     /**
+      * This method returns a rescaled BufferedImage.
+-     * <p>
++     * 
+      * <p>This method takes in an image and a new size to rescale the given image to the new sizes.</p>
+      *

@@ -1,0 +1,47 @@
+--- src/main/java/eu/hackathon/cheesecake/internal/controls/KeyCode.java
++++ src/main/java/eu/hackathon/cheesecake/internal/controls/KeyCode.java
+@@ -11,5 +11,5 @@
+ /**
+  * This enum contains all valid input types.
+- * <p>
++ * 
+  * <p>This enum contains all valid input types for mouse and keyboard only.</p>
+  *
+@@ -72,7 +72,7 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>The Constructor requires all data for each possible input.</p>
+-     * <p>
++     * 
+      * <p>The Constructor is package-private.</p>
+      *
+@@ -92,5 +92,5 @@
+     /**
+      * Returns the value.
+-     * <p>
++     * 
+      * <p>Returns the KeyCode value.</p>
+      *
+@@ -103,5 +103,5 @@
+     /**
+      * Returns if KeyCode is for the keyboard.
+-     * <p>
++     * 
+      * <p>Returns if the KeyCode is for a key on the keyboard. It the KeyCode is for a specific
+      * key on the keyboard, it will return true otherwise false.</p>
+@@ -116,5 +116,5 @@
+     /**
+      * Returns if KeyCode is for the mouse.
+-     * <p>
++     * 
+      * <p>Returns if the KeyCode is for a button on the mouse. It the KeyCode is for a specific
+      * button on the mouse, it will return true otherwise false.</p>
+@@ -129,5 +129,5 @@
+     /**
+      * Returns if KeyCode is for another external device.
+-     * <p>
++     * 
+      * <p>Returns if the KeyCode is not for a key on the keyboard or mouse. It the KeyCode is not for a specific
+      * key on the keyboard or mouse, it will return true otherwise false.</p>

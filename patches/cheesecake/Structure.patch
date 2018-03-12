@@ -1,0 +1,30 @@
+--- src/main/java/eu/hackathon/cheesecake/Structure.java
++++ src/main/java/eu/hackathon/cheesecake/Structure.java
+@@ -16,5 +16,5 @@
+     /**
+      * Method initializes base-values for objects in the application.
+-     * <p>
++     * 
+      * <p>This method is mostly for initialization purposes.</p>
+      */
+@@ -23,5 +23,5 @@
+     /**
+      * Ticks x times per second.
+-     * <p>
++     * 
+      * <p>The Application is calling the tick Method to update the
+      * state x times per second.</p>
+@@ -31,5 +31,5 @@
+     /**
+      * Draws x times per second.
+-     * <p>
++     * 
+      * <p>The Application is calling the draw Method to update the
+      * screen x times per second.</p>
+@@ -41,5 +41,5 @@
+     /**
+      * Method is called last in the application.
+-     * <p>
++     * 
+      * <p>This method is mostly for cleaning purposes.</p>
+      */

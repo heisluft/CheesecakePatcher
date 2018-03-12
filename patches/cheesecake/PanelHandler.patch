@@ -1,0 +1,80 @@
+--- src/main/java/eu/hackathon/cheesecake/PanelHandler.java
++++ src/main/java/eu/hackathon/cheesecake/PanelHandler.java
+@@ -11,5 +11,5 @@
+ /**
+  * The PanelHandler manages the Game-State classes known as Panel.
+- * <p>
++ * 
+  * <p>The PanelHandler is a part of the base TLS-Application and allows to
+  * tick and draw a certain selected panel at the time.</p>
+@@ -32,5 +32,5 @@
+     /**
+      * The key corresponding to the current panel.
+-     * <p>
++     * 
+      * <p>This panel is the one currently in use.</p>
+      */
+@@ -39,5 +39,5 @@
+     /**
+      * The Constructor.
+-     * <p>
++     * 
+      * <p>This constructor is package-private.</p>
+      */
+@@ -74,5 +74,5 @@
+     /**
+      * Adds a panel.
+-     * <p>
++     * 
+      * <p>Adds a new panel with the key to the map.</p>
+      * <p>This method is package-private.</p>
+@@ -93,5 +93,5 @@
+     /**
+      * Removes a panel.
+-     * <p>
++     * 
+      * <p>Removes an existing panel with the given key from the map.</p>
+      * <p>This method is package-private.</p>
+@@ -108,5 +108,5 @@
+     /**
+      * Removes a panel.
+-     * <p>
++     * 
+      * <p>Removes an existing panel from the map.</p>
+      * <p>This method is package-private.</p>
+@@ -123,5 +123,5 @@
+     /**
+      * Returns true if map contains key, else false.
+-     * <p>
++     * 
+      * <p>This method returns true if the given key corresponds to an existing panel.</p>
+      * <p>This method is package-private.</p>
+@@ -137,5 +137,5 @@
+     /**
+      * Returns true if map contains key, else false.
+-     * <p>
++     * 
+      * <p>This method returns true if the given key corresponds to an existing panel.</p>
+      * <p>This method is package-private.</p>
+@@ -151,8 +151,8 @@
+     /**
+      * Sets the current panel corresponding to the given key.
+-     * <p>
++     * 
+      * <p>This method gets the panel by the given key if it exists. If it does not exists it throws an IllegalArgumentException.
+      * Otherwise the current panel is set to the panel corresponding to the key.</p>
+-     * <p>
++     * 
+      * <p>The current panel is the panel that will be updated in the Main-Game-Loop.</p>
+      *
+@@ -181,8 +181,8 @@
+     /**
+      * Sets the current panel corresponding to the given key.
+-     * <p>
++     * 
+      * <p>This method gets the current panel, if one exists. If it does not exists it returns null.
+      * Otherwise the current panel is returned.</p>
+-     * <p>
++     * 
+      * <p>The current panel is the panel that will be updated in the Main-Game-Loop.</p>
+      *

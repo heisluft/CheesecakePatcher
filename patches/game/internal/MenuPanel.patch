@@ -1,0 +1,30 @@
+--- src/main/java/eu/hackathon/game/internal/MenuPanel.java
++++ src/main/java/eu/hackathon/game/internal/MenuPanel.java
+@@ -18,5 +18,5 @@
+     private static int BACKGROUND = 0xff000000;
+ 
+-    private GUIRect logo, start, background;
++    private GUIRect logo, start, background, credit;
+ 
+     private double lastTime = System.currentTimeMillis();
+@@ -32,5 +32,5 @@
+         logo = new GUIRect((getManager().getWindow().getWidth() - Resources.LOGO.getWidth()) / 2, -64);
+         start = new GUIRect((getManager().getWindow().getWidth() - Resources.FONT.getWidth("Start Adventure")) / 2, getManager().getWindow().getHeight() - 128, Resources.FONT.getWidth("Start Adventure"), Resources.FONT.getHeight());
+-
++        credit = new GUIRect(5, 5, Resources.FONT.getWidth("CheesecakePatcher v.0.0.1"), Resources.FONT.getHeight());
+         background = new GUIRect(0, 0, 0, 0);
+     }
+@@ -51,5 +51,5 @@
+ 
+         if (Keyboard.getKeyUp(KeyCode.ESCAPE)) {
+-            getManager().application.stop();
++            getManager().getApplication().stop();
+         }
+ 
+@@ -81,4 +81,6 @@
+         GUI.drawTexture(extendedGraphics, Resources.LOGO, logo);
+ 
++        GUI.drawText(extendedGraphics, "CheesecakePatcher v.0.0.1", Resources.FONT, credit);
++
+         if (getManager().getScreen().isFading()) {
+             return;
