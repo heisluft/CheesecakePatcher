@@ -76,6 +76,14 @@ public class Patcher {
 			System.exit(1);
 		}
 
+		setup.info("Deleting Unused Files\n");
+		try {
+			deleteUnusedFiles();
+		} catch(Exception e) {
+			setup.catching(e);
+			System.exit(1);
+		}
+
 		setup.info("Building jar\n");
 		try {
 			buildJar();
@@ -197,6 +205,17 @@ public class Patcher {
 			if (file.isDirectory()) injectSource(file);
 			else
 				FileUtils.copyFile(file, gameWorkingDir.toPath().resolve(changeWorkingDir.toPath().relativize(file.toPath())).toFile());
+	}
+
+	private static void deleteUnusedFiles() throws IOException {
+		List<String> deletionList = Files.readAllLines(new File(changeWorkingDir, "deletions").toPath());
+		for(String deletion : deletionList)
+			if(!deletion.isEmpty()) {
+				setup.info("Deleting " + deletion + "...\n");
+				File f = new File(gameWorkingDir, deletion);
+				if(f.exists()) FileUtils.forceDelete(f);
+			}
+		setup.info("Done\n");
 	}
 
 	private static void registerPatches(File f) {
