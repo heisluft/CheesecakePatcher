@@ -14,6 +14,8 @@
 /classes/
 /out/
 *.iml
+*.ipr
+*.iws
 
 #project
 /work/
