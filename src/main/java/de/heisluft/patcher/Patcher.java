@@ -153,39 +153,7 @@ public class Patcher {
 	}
 
 	private static void patchGradle() throws IOException {
-		new File(gameWorkingDir, "gradle/wrapper").mkdirs();
-		ClassLoader classLoader = Patcher.class.getClassLoader();
-
-		setup.info("Adding gradle-wrapper.jar");
-		File wrapJar = new File(gameWorkingDir, "gradle/wrapper/gradle-wrapper.jar");
-		wrapJar.createNewFile();
-		InputStream is;
-		OutputStream os;
-		copyStream(is = classLoader.getResourceAsStream("gradle/gradle/wrapper/gradle-wrapper.jar.tri"), os = new FileOutputStream(wrapJar));
-		is.close();
-		os.close();
-
-		setup.info("Adding gradle-wrapper.properties");
-		File wrapP = new File(gameWorkingDir, "gradle/wrapper/gradle-wrapper.properties");
-		wrapP.createNewFile();
-		copyStream(is = classLoader.getResourceAsStream("gradle/gradle/wrapper/gradle-wrapper.properties"), os = new FileOutputStream(wrapP));
-		is.close();
-		os.close();
-
-		setup.info("Adding settings.gradle");
-		File sGradle = new File(gameWorkingDir, "settings.gradle");
-		sGradle.createNewFile();
-		copyStream(is = classLoader.getResourceAsStream("gradle/settings.gradle"), os = new FileOutputStream(sGradle));
-		is.close();
-		os.close();
-
-		setup.info("Adding build.gradle");
-		File bGradle = new File(gameWorkingDir, "build.gradle");
-		bGradle.createNewFile();
-		copyStream(is = classLoader.getResourceAsStream("gradle/build.gradle"), os = new FileOutputStream(bGradle));
-		is.close();
-		os.close();
-
+		FileUtils.copyDirectory(new File(changeWorkingDir, "injected-gradle-files"), gameWorkingDir,null, true);
 		setup.info("Done\n");
 	}
 
