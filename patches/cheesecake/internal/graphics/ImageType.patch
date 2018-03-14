@@ -7,3 +7,10 @@
 + * 
   * <p>This enum is required to load images of a specific type.</p>
   *
+@@ -43,5 +43,5 @@
+      * Returns the format (package-private).
+      *
+-     * @Return String The required format.
++     * @return String The required format.
+      */
+     String format() {

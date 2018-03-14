@@ -1,6 +1,6 @@
 --- src/main/java/eu/hackathon/cheesecake/external/audio/AudioClip.java
 +++ src/main/java/eu/hackathon/cheesecake/external/audio/AudioClip.java
-@@ -4,29 +4,24 @@
+@@ -4,33 +4,24 @@
  package eu.hackathon.cheesecake.external.audio;
  
 +import de.heisluft.capi.resources.MissingResourceException;
@@ -10,7 +10,7 @@
  import javax.sound.sampled.*;
 +import java.io.BufferedInputStream;
  import java.io.IOException;
- import java.net.URL;
+-import java.net.URL;
  
  public class AudioClip implements Cloneable {
 -    private URL url;
@@ -36,15 +36,36 @@
 -            this.clip = (Clip) AudioSystem.getLine(info);
 -
 -            this.clip.addLineListener(e -> {
+-                if (e.getType().equals(LineEvent.Type.START)) {
+-                    isPlaying = true;
+-                }
+-
 +            clip.addLineListener(e -> {
-                 if (e.getType().equals(LineEvent.Type.START)) {
-                     isPlaying = true;
-@@ -41,6 +36,6 @@
++                if (e.getType().equals(LineEvent.Type.START)) isPlaying = true;
+                 if (e.getType().equals(LineEvent.Type.STOP)) {
+                     clip.stop();
+@@ -40,7 +31,6 @@
+                 }
              });
- 
+-
 -            clip.open(audioInputStream);
 -        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 +            clip.open(ais);
 +        } catch(MissingResourceException | IOException | UnsupportedAudioFileException | LineUnavailableException e) {
              e.printStackTrace();
+         }
+@@ -53,12 +43,7 @@
+     public void play(boolean isUnsafe) {
+         if (!isUnsafe) {
+-            if (isPlaying) {
+-                return;
+-            }
+-            isPlaying = true;
++            if (!isPlaying) isPlaying = true;
+         } else {
+-            if (isPlaying) {
+-                clip.stop();
+-            }
++            if (isPlaying) clip.stop();
+             clip.setFramePosition(0);
          }

@@ -28,3 +28,23 @@
 +     * 
       * <p>This method converts a given integer value into a roman number. This number is represented as a
       * simple string.</p>
+@@ -77,5 +77,5 @@
+      */
+     public static String toRoman(int value) {
+-        String result = "";
++        StringBuilder result = new StringBuilder();
+ 
+         for (int i = 0; i < ROMAN_CHARACTER_VALUES.length; i++) {
+@@ -85,9 +85,10 @@
+                 continue;
+             }
+-            result += numberInPlace == 4 && i > 0 ? ROMAN_CHARACTERS[i] + ROMAN_CHARACTERS[i - 1] : new String(new char[numberInPlace]).replace("\0", ROMAN_CHARACTERS[i]);
++            result.append(numberInPlace == 4 && i > 0 ? ROMAN_CHARACTERS[i] + ROMAN_CHARACTERS[i - 1] : new String(
++                    new char[numberInPlace]).replace("\0", ROMAN_CHARACTERS[i]));
+ 
+             value = value % ROMAN_CHARACTER_VALUES[i];
+         }
+-        return result;
++        return result.toString();
+     }
+ }

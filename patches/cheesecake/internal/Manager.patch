@@ -11,7 +11,7 @@
   * @version 1.0.0
   */
 -public abstract class Manager implements Handler {
-+public abstract class Manager implements Handler/*PatchStart*/, IAssetManager/*PatchEnd*/ {
++public abstract class Manager implements Handler, IAssetManager {
  
      /**
       * The Application.

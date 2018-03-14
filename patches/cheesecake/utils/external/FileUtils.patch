@@ -1,0 +1,52 @@
+--- src/main/java/eu/hackathon/cheesecake/utils/external/FileUtils.java
++++ src/main/java/eu/hackathon/cheesecake/utils/external/FileUtils.java
+@@ -1,4 +1,7 @@
+ package eu.hackathon.cheesecake.utils.external;
+ 
++import de.heisluft.capi.resources.ResourceLocation;
++import eu.hackathon.game.GameHandler;
++
+ import java.io.File;
+ import java.io.FileOutputStream;
+@@ -34,5 +37,5 @@
+ 
+         if (operationSystem.contains(FileUtils.ENVIRONMENT_VARIABLE_OS_MAC)) {
+-            path = System.getProperty("user.home") + "/Library/Application " + "Support" + FileUtils.DIRECTORY;
++            path = System.getProperty("user.home") + "/Library/Application Support" + FileUtils.DIRECTORY;
+         }
+ 
+@@ -96,23 +99,20 @@
+     }
+ 
+-    public static boolean install(String from, String to) {
++    public static boolean install(ResourceLocation from, String to) {
+         try {
+-            InputStream inputStream = FileUtils.class.getResourceAsStream(from);
+-            if (inputStream != null) {
+-                int readBytes;
++            InputStream inputStream = GameHandler.instance().getCurrentAssets().getInputStream(from);
++            int readBytes;
+ 
+-                byte[] buffer = new byte[4096];
++            byte[] buffer = new byte[4096];
+ 
+-                String[] args = from.split("/");
++            String[] args = from.getLocation().split("/");
+ 
+-                OutputStream outputStream = new FileOutputStream(to + args[args.length - 1]);
++            OutputStream outputStream = new FileOutputStream(to + args[args.length - 1]);
+ 
+-                while ((readBytes = inputStream.read(buffer)) > 0) {
+-                    outputStream.write(buffer, 0, readBytes);
+-                }
+-                inputStream.close();
+-                outputStream.close();
+-            }
+-        } catch (Exception ignored) {
++            while ((readBytes = inputStream.read(buffer)) > 0) outputStream.write(buffer, 0, readBytes);
++
++            inputStream.close();
++            outputStream.close();
++        } catch (Exception e) {
+             return false;
+         }

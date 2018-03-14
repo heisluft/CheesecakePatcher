@@ -1,15 +1,32 @@
 --- src/main/java/eu/hackathon/game/utils/ResourcesHandler.java
 +++ src/main/java/eu/hackathon/game/utils/ResourcesHandler.java
-@@ -11,5 +11,5 @@
+@@ -1,4 +1,5 @@
+ package eu.hackathon.game.utils;
  
++import de.heisluft.capi.resources.ResourceLocation;
+ import eu.hackathon.cheesecake.utils.external.FileUtils;
+ import eu.hackathon.game.external.LevelData;
+@@ -6,10 +7,7 @@
+ public final class ResourcesHandler {
+     public static void init() {
+-        FileUtils.setRootDirectory(".Cheesecake Adventures");
+-
+-        FileUtils.create(LevelData.FOLDER);
+-
++        Resources.init();
          for (int i = 0; i < 10; i++) {
 -            boolean result = FileUtils.install("/utils/data/level " + i + LevelData.FILE_EXTENSION, FileUtils.getTotalPath() + "/" + LevelData.FOLDER + "/");
-+            boolean result = FileUtils.install("/assets/cheesecake/data/levels/level " + i + LevelData.FILE_EXTENSION, FileUtils.getTotalPath() + "/" + LevelData.FOLDER + "/");
++            boolean result = FileUtils.install(new ResourceLocation("cheesecake:data/levels/level " + i + ".json"), FileUtils.getTotalPath() + "/" + LevelData.FOLDER + "/");
  
              if (!result) {
-@@ -17,5 +17,4 @@
+@@ -17,5 +15,9 @@
              }
          }
 -        Resources.init();
      }
++
++    public static void preInit() {
++        FileUtils.setRootDirectory(".cheesecake");
++        FileUtils.create(LevelData.FOLDER);
++    }
  }

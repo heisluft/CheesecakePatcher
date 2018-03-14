@@ -1,0 +1,9 @@
+--- src/main/java/eu/hackathon/cheesecake/utils/external/Scene.java
++++ src/main/java/eu/hackathon/cheesecake/utils/external/Scene.java
+@@ -15,5 +15,5 @@
+ 
+ public class Scene {
+-    private static List<SceneEvent> requests = new ArrayList<SceneEvent>();
++    private static List<SceneEvent> requests = new ArrayList<>();
+     private static boolean nextRequest = false;
+ 
