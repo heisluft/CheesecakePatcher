@@ -1,12 +1,13 @@
 --- src/main/java/eu/hackathon/cheesecake/external/audio/AudioClip.java
 +++ src/main/java/eu/hackathon/cheesecake/external/audio/AudioClip.java
-@@ -4,33 +4,24 @@
+@@ -4,33 +4,25 @@
  package eu.hackathon.cheesecake.external.audio;
  
 +import de.heisluft.capi.resources.MissingResourceException;
 +import de.heisluft.capi.resources.ResourceLocation;
 +import eu.hackathon.game.GameHandler;
 +
++import javax.annotation.ParametersAreNonnullByDefault;
  import javax.sound.sampled.*;
 +import java.io.BufferedInputStream;
  import java.io.IOException;
@@ -44,7 +45,7 @@
 +                if (e.getType().equals(LineEvent.Type.START)) isPlaying = true;
                  if (e.getType().equals(LineEvent.Type.STOP)) {
                      clip.stop();
-@@ -40,7 +31,6 @@
+@@ -40,7 +32,6 @@
                  }
              });
 -
@@ -54,7 +55,7 @@
 +        } catch(MissingResourceException | IOException | UnsupportedAudioFileException | LineUnavailableException e) {
              e.printStackTrace();
          }
-@@ -53,12 +43,7 @@
+@@ -53,12 +44,7 @@
      public void play(boolean isUnsafe) {
          if (!isUnsafe) {
 -            if (isPlaying) {
