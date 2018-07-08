@@ -36,7 +36,6 @@ public class Patcher {
 
 	public static void main(String[] args) {
 		long l = System.nanoTime();
-		System.setProperty("log4j.configuration", "log4j.xml");
 
 		OptionParser parser = new OptionParser();
 		parser.accepts("js");
