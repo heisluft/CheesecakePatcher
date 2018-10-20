@@ -33,7 +33,5 @@ shadowJar {
 
 dependencies {
     compile 'de.heisluft:annotation:1.0.0'
-    compile('com.googlecode.json-simple:json-simple:1.1.1') {
-        exclude module: 'junit'
-    }
+    compile 'com.googlecode.json-simple:json-simple:1.2.0'
 }
