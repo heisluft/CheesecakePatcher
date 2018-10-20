@@ -12,7 +12,6 @@ buildscript {
 group 'de.heisluft'
 version '0.0.1'
 
-apply plugin: 'scala'
 apply plugin: 'com.github.johnrengelman.shadow'
 
 sourceCompatibility = 1.8
@@ -30,7 +29,6 @@ shadowJar {
 
 dependencies {
     compile 'org.eclipse.jgit:org.eclipse.jgit:4.10.0.201712302008-r'
-    compile 'org.scala-lang:scala-library-all:2.12.5'
     compile 'commons-io:commons-io:2.6'
     compile 'org.apache.logging.log4j:log4j-core:2.9.1'
     compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.9.1'

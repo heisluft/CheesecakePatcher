@@ -219,11 +219,6 @@ public class Patcher {
 		}
 	}
 
-	private static void copyStream(InputStream is, OutputStream os) throws IOException {
-		int lastByte;
-		while((lastByte = is.read()) != -1) os.write(lastByte);
-	}
-
 	private static void moveAllSubDirsTo(File in, File to) throws IOException {
 		for(File f : in.listFiles())
 			if(f.isDirectory()) FileUtils.moveDirectory(f, new File(to, f.getName()));
